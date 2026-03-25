@@ -249,21 +249,24 @@ function getSignups() {
 }
 
 function updateCounter() {
+  const el = document.getElementById('counterNumber');
+  const elText = document.getElementById('counterText');
+  if (!el || !elText) return;
   const BASE_COUNT = 1;
   const count = BASE_COUNT + getSignups().length;
   const t = translations[currentLang];
-  document.getElementById('counterNumber').textContent = count;
-  document.getElementById('counterText').textContent =
-    count === 1 ? t.counterText : t.counterTextPlural;
+  el.textContent = count;
+  elText.textContent = count === 1 ? t.counterText : t.counterTextPlural;
 }
 
 // ─── AIRTABLE ─────────────────────────────────────────────────────────────────
-const AIRTABLE_TOKEN   = ['pat9gHBIQ', 'A4TZmAq4.8977664', '13cd97834e8669f1201219c0f2af0', 'e24a622700195553ff1aca29c1bc'].join('');
-const AIRTABLE_BASE_ID = 'app1TSzkQD0HTyXd0';
-const AIRTABLE_TABLE   = 'Waitlist';
+const AIRTABLE_TOKEN              = ['pat9gHBIQ', 'A4TZmAq4.8977664', '13cd97834e8669f1201219c0f2af0', 'e24a622700195553ff1aca29c1bc'].join('');
+const AIRTABLE_BASE_ID            = 'app1TSzkQD0HTyXd0';
+const AIRTABLE_TABLE_COMM         = 'Waitlist_supercommunicators';
+const AIRTABLE_TABLE_SEEKERS      = 'Seeker Waitlist';
 
 async function saveToAirtable(data) {
-  await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE}`, {
+  await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_COMM}`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${AIRTABLE_TOKEN}`,
@@ -381,6 +384,25 @@ function updateSeekerCounter() {
   elText.textContent = count === 1 ? t.seekerCounterText : t.seekerCounterTextPlural;
 }
 
+// ─── AIRTABLE — SEEKERS ──────────────────────────────────────────────────────
+async function saveToAirtableSeekers(data) {
+  await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_SEEKERS)}`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${AIRTABLE_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      fields: {
+        'Name':        data.name,
+        'Email':       data.email,
+        'Looking For': data.looking_for,
+        'Status':      'New',
+      },
+    }),
+  });
+}
+
 // ─── SEEKER FORM ─────────────────────────────────────────────────────────────
 function initSeekerForm() {
   document.getElementById('seekerForm').addEventListener('submit', handleSeekerSubmit);
@@ -409,6 +431,9 @@ async function handleSeekerSubmit(e) {
   const seekers = getSeekerSignups();
   seekers.push(data);
   localStorage.setItem('vitaminS_seekers', JSON.stringify(seekers));
+
+  // Save to Airtable (fire and forget)
+  saveToAirtableSeekers(data).catch(() => {});
 
   form.hidden = true;
   document.getElementById('seekerSuccessState').hidden = false;
