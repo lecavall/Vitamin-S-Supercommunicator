@@ -8,7 +8,42 @@
 const translations = {
   en: {
     pageTitle:          'Vitamin S — Your network is your superpower',
+    communicatorsPageTitle: 'Vitamin S — For Super Communicators',
+    seekerPageTitle:    'Vitamin S — Find your Intro',
+    splashPageTitle:    'Vitamin S',
     langToggle:         'DE',
+    navTabCommunicators: 'For Door Openers',
+    navTabSeekers:      'Find an Intro',
+    splashTagline:      'Vitamin B is so yesterday.',
+    splashCommTitle:    "I'm a Door Opener",
+    splashCommSub:      'You know the right people? Earn money with your network.',
+    splashSeekerTitle:  "I'm Looking for Access",
+    splashSeekerSub:    'You need a warm intro? Find the right connection.',
+    splashCTA:          'Learn more →',
+    seekerHeroBadge:    'Find an Intro',
+    seekerHeroHeadline: 'The right connection changes everything.',
+    seekerHeroSub:      'No spam. No algorithm. A real person who knows exactly who you need — and introduces you personally.',
+    seekerHeroCTA:      'Request an Intro',
+    seekerHowTitle:     'How it works',
+    seekerStep1Title:   'Tell us who you need',
+    seekerStep1Text:    'Tell us who you want to be connected with — a hiring manager, a landlord, an event organizer, an investor. Whatever you need.',
+    seekerStep2Title:   'We find your door opener',
+    seekerStep2Text:    'Vitamin S matches you with a Super Communicator who personally knows exactly who you\'re looking for. No bot, no luck — real connection.',
+    seekerStep3Title:   'You get your intro',
+    seekerStep3Text:    'Your Super Communicator introduces you personally. No cold call. No generic greeting. Just: "Hey, I know someone."',
+    seekerFormTitle:    'Find your Intro',
+    seekerFormSub:      "Sign up — we'll let you know as soon as Vitamin S launches.",
+    seekerLabelName:    'Name',
+    seekerLabelEmail:   'Email',
+    seekerLabelLookingFor: 'Who do you want to be connected with?',
+    seekerNamePlaceholder:      'Your name',
+    seekerEmailPlaceholder:     'Your email',
+    seekerLookingForPlaceholder: "e.g. 'I'm looking for a connection to hiring managers in tech in Munich' or 'I need someone who can introduce me to [event/club/person]'",
+    seekerSubmitCTA:    'Join the Waitlist',
+    seekerSuccessMsg:   "You're in! We'll find the right door opener for you. 🤝",
+    seekerSuccessSub:   "We'll let you know as soon as we launch.",
+    seekerCounterText:       'person is already looking for an intro',
+    seekerCounterTextPlural: 'people are already looking for an intro',
     heroBadge:          'For Supercommunicators',
     heroHeadline:       'Your network is your superpower.<br>Get paid for it.',
     heroSub:            'Vitamin B is so yesterday. Vitamin S rewards the people who naturally bring others together with warm introductions that open doors.',
@@ -58,7 +93,42 @@ const translations = {
 
   de: {
     pageTitle:          'Vitamin S — Dein Netzwerk ist deine Superpower',
+    communicatorsPageTitle: 'Vitamin S — Für Super Communicators',
+    seekerPageTitle:    'Vitamin S — Intro finden',
+    splashPageTitle:    'Vitamin S',
     langToggle:         'EN',
+    navTabCommunicators: 'Für Türöffner',
+    navTabSeekers:      'Intro finden',
+    splashTagline:      'Vitamin B war gestern.',
+    splashCommTitle:    'Ich bin Türöffner',
+    splashCommSub:      'Du kennst die richtigen Leute? Verdiene Geld mit deinem Netzwerk.',
+    splashSeekerTitle:  'Ich suche Zugang',
+    splashSeekerSub:    'Du brauchst eine warme Intro? Finde die richtige Verbindung.',
+    splashCTA:          'Mehr erfahren →',
+    seekerHeroBadge:    'Intro finden',
+    seekerHeroHeadline: 'Die richtige Verbindung ist alles.',
+    seekerHeroSub:      'Kein Spam. Kein Algorithmus. Ein Mensch der die richtige Person für dich kennt — und dich persönlich vorstellt.',
+    seekerHeroCTA:      'Intro anfragen',
+    seekerHowTitle:     "So funktioniert's",
+    seekerStep1Title:   'Sag uns wen du suchst',
+    seekerStep1Text:    'Beschreibe mit wem du verbunden werden möchtest — ein Hiring Manager, ein Vermieter, ein Event-Organisator, ein Investor. Was auch immer du brauchst.',
+    seekerStep2Title:   'Wir finden deinen Türöffner',
+    seekerStep2Text:    'Vitamin S matcht dich mit einem Super Communicator der genau die Person kennt, die du suchst. Kein Bot, kein Zufall — echte Verbindung.',
+    seekerStep3Title:   'Du bekommst deine Intro',
+    seekerStep3Text:    'Dein Super Communicator stellt dich persönlich vor. Kein Cold Call. Kein "Sehr geehrte Damen und Herren". Einfach: "Hey, ich kenne da jemanden."',
+    seekerFormTitle:    'Finde deine Intro',
+    seekerFormSub:      'Trag dich ein — wir melden uns sobald Vitamin S live geht.',
+    seekerLabelName:    'Name',
+    seekerLabelEmail:   'Email',
+    seekerLabelLookingFor: 'Mit wem willst du connected werden?',
+    seekerNamePlaceholder:      'Dein Name',
+    seekerEmailPlaceholder:     'Deine Email',
+    seekerLookingForPlaceholder: "z.B. 'Ich suche einen Kontakt zu Hiring Managern in der Tech-Branche in München' oder 'Ich brauche jemanden der mich bei [Event/Club/Person] vorstellen kann'",
+    seekerSubmitCTA:    'Auf die Warteliste',
+    seekerSuccessMsg:   'Du bist drin! Wir finden den richtigen Türöffner für dich. 🤝',
+    seekerSuccessSub:   'Wir melden uns sobald wir live gehen.',
+    seekerCounterText:       'Person sucht bereits eine Intro',
+    seekerCounterTextPlural: 'Leute suchen bereits eine Intro',
     heroBadge:          'For Supercommunicators',
     heroHeadline:       'Your network is your superpower.<br>Get paid for it.',
     heroSub:            'Du hast Vitamin B für 1000? Vitamin S belohnt alle, die von Natur aus Brücken bauen und ihr Netzwerk für andere nutzbar machen wollen. Gegen Entlohnung.',
@@ -114,10 +184,17 @@ let currentLang = localStorage.getItem('vitaminS_lang') || 'de';
 document.addEventListener('DOMContentLoaded', () => {
   applyLanguage(currentLang);
   initLangToggle();
-  initForm();
-  initOtherField();
   initScrollAnimations();
   initStickyNav();
+
+  if (document.getElementById('waitlistForm')) {
+    initForm();
+    initOtherField();
+  }
+
+  if (document.getElementById('seekerForm')) {
+    initSeekerForm();
+  }
 });
 
 // ─── LANGUAGE ────────────────────────────────────────────────────────────────
@@ -127,8 +204,11 @@ function applyLanguage(lang) {
   document.documentElement.lang = lang;
 
   const t = translations[lang];
-
-  document.title = t.pageTitle;
+  const page = document.body.dataset.page;
+  if (page === 'communicators') document.title = t.communicatorsPageTitle;
+  else if (page === 'seekers')   document.title = t.seekerPageTitle;
+  else if (page === 'splash')    document.title = t.splashPageTitle;
+  else                           document.title = t.pageTitle;
 
   // textContent elements
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -148,8 +228,9 @@ function applyLanguage(lang) {
     if (t[key] !== undefined) el.placeholder = t[key];
   });
 
-  // keep counter text in sync
+  // keep counters in sync
   updateCounter();
+  updateSeekerCounter();
 }
 
 function initLangToggle() {
@@ -279,4 +360,57 @@ function initStickyNav() {
   window.addEventListener('scroll', () => {
     nav.classList.toggle('nav--scrolled', window.scrollY > 16);
   }, { passive: true });
+}
+
+// ─── SEEKER COUNTER ──────────────────────────────────────────────────────────
+function getSeekerSignups() {
+  try {
+    return JSON.parse(localStorage.getItem('vitaminS_seekers') || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function updateSeekerCounter() {
+  const el = document.getElementById('seekerCounterNumber');
+  const elText = document.getElementById('seekerCounterText');
+  if (!el || !elText) return;
+  const count = getSeekerSignups().length;
+  const t = translations[currentLang];
+  el.textContent = count;
+  elText.textContent = count === 1 ? t.seekerCounterText : t.seekerCounterTextPlural;
+}
+
+// ─── SEEKER FORM ─────────────────────────────────────────────────────────────
+function initSeekerForm() {
+  document.getElementById('seekerForm').addEventListener('submit', handleSeekerSubmit);
+}
+
+async function handleSeekerSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+
+  const name       = form.seekerName.value.trim();
+  const email      = form.seekerEmail.value.trim();
+  const lookingFor = form.seekerLookingFor.value.trim();
+
+  if (!name)                      { form.seekerName.focus();       return; }
+  if (!email || !isValidEmail(email)) { form.seekerEmail.focus();  return; }
+  if (!lookingFor)                { form.seekerLookingFor.focus(); return; }
+
+  const data = {
+    type: 'seeker',
+    name,
+    email,
+    looking_for: lookingFor,
+    timestamp: new Date().toISOString(),
+  };
+
+  const seekers = getSeekerSignups();
+  seekers.push(data);
+  localStorage.setItem('vitaminS_seekers', JSON.stringify(seekers));
+
+  form.hidden = true;
+  document.getElementById('seekerSuccessState').hidden = false;
+  updateSeekerCounter();
 }
